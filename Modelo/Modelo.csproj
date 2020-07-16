@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3F20EE6C-822E-492E-A169-69969F187A47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Modelo</RootNamespace>
+    <AssemblyName>Modelo</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuracion\ConfiguracionGeneralDAL.cs" />
+    <Compile Include="Configuracion\ConfiguracionParaclinicoDAL.cs" />
+    <Compile Include="Configuracion\EmpresaDAL.cs" />
+    <Compile Include="Configuracion\ListaPrecioEquivalenciaDAL.cs" />
+    <Compile Include="Configuracion\ProductoDAL.cs" />
+    <Compile Include="Configuracion\TipoExamenDAL.cs" />
+    <Compile Include="Configuracion\UsuarioDAL.cs" />
+    <Compile Include="Facturacion\FacturaPacienteDAL.cs" />
+    <Compile Include="General\BusquedaDAL.cs" />
+    <Compile Include="General\AdminConexionDAL.cs" />
+    <Compile Include="General\Constantes\ConstanteGeneral.cs" />
+    <Compile Include="General\Constantes\ConsultasConfiguracionGeneral.cs" />
+    <Compile Include="General\Constantes\ConsultasHistoriaClinica.cs" />
+    <Compile Include="General\DigitoVerificacion.cs" />
+    <Compile Include="General\Extensiones.cs" />
+    <Compile Include="General\FuncionesDAL.cs" />
+    <Compile Include="General\OperacionesBD.cs" />
+    <Compile Include="General\InformacionTag.cs" />
+    <Compile Include="General\Instrucciones\SentenciasDAL.cs" />
+    <Compile Include="General\SesionDAL.cs" />
+    <Compile Include="HistoriaClinica\Configuracion\ConfiguracionProcedimientoMedicoDAL.cs" />
+    <Compile Include="HistoriaClinica\Enfermeria\EnfermeriaDAL.cs" />
+    <Compile Include="HistoriaClinica\EstanciaDAL.cs" />
+    <Compile Include="HistoriaClinica\EvolucionMedicaDAL.cs" />
+    <Compile Include="HistoriaClinica\IngresoClinicoDAL.cs" />
+    <Compile Include="HistoriaClinica\OrdenClinicaDAL.cs" />
+    <Compile Include="HistoriaClinica\Resultado\EcocardiogramaDAL.cs" />
+    <Compile Include="HistoriaClinica\Resultado\HemodialisisDAL.cs" />
+    <Compile Include="HistoriaClinica\Resultado\InformeQuirurgicoDAL.cs" />
+    <Compile Include="HistoriaClinica\Resultado\JustificacionAntibioticoDAL.cs" />
+    <Compile Include="HistoriaClinica\Resultado\MedicamentoNoPosDAL.cs" />
+    <Compile Include="HistoriaClinica\Resultado\ResultadoLaboratorioDAL.cs" />
+    <Compile Include="HistoriaClinica\SabanaDAL.cs" />
+    <Compile Include="HistoriaClinica\SolicitudLabDAL.cs" />
+    <Compile Include="Ingreso\AdmisionDAL.cs" />
+    <Compile Include="Ingreso\AtencionDAL.cs" />
+    <Compile Include="Ingreso\Configuracion\ManualServicioDAL.cs" />
+    <Compile Include="Ingreso\ManualTarifarioServicioDAL.cs" />
+    <Compile Include="Ingreso\PacienteDAL.cs" />
+    <Compile Include="Inventario\BodegaDAL.cs" />
+    <Compile Include="Inventario\ClienteDAL.cs" />
+    <Compile Include="Inventario\ProveedorDAL.cs" />
+    <Compile Include="LoginDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SesionDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="General\Convertidores\" />
+    <Folder Include="General\Validadores\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidad\Entidad.csproj">
+      <Project>{b01a2a9c-5d04-4ded-bf5e-048990d1a898}</Project>
+      <Name>Entidad</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

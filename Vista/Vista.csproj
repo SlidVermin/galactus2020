@@ -1,0 +1,735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{88491F1A-4110-44E6-9839-638E193B3E7E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vista</RootNamespace>
+    <AssemblyName>Vista</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencias\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencias\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencias\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>Dependencias\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="General\BusquedaGeneralUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\BusquedaGeneralUI.designer.cs">
+      <DependentUpon>BusquedaGeneralUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\Class1.cs" />
+    <Compile Include="General\Constantes\ConstanteGeneral.cs" />
+    <Compile Include="General\Constantes\ConsultasConfiguracionGeneral.cs" />
+    <Compile Include="General\Constantes\ConsultasHistoriaClinica.cs" />
+    <Compile Include="General\FuncionesUI.cs" />
+    <Compile Include="General\GeneralUI.cs" />
+    <Compile Include="General\Mensajes.cs" />
+    <Compile Include="General\MyRenderer.cs" />
+    <Compile Include="General\ReporteUI.cs" />
+    <Compile Include="General\TabControlGalactus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="General\Titulos.cs" />
+    <Compile Include="General\VentanaEntradaDatos.cs" />
+    <Compile Include="General\VentanaEntradaDatosUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\VentanaEntradaDatosUI.designer.cs">
+      <DependentUpon>VentanaEntradaDatosUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Configuracion\ConfiguracionProcedimientoMedicoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Configuracion\ConfiguracionProcedimientoMedicoUI.designer.cs">
+      <DependentUpon>ConfiguracionProcedimientoMedicoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\EgresoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\EgresoUI.designer.cs">
+      <DependentUpon>EgresoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\EnfermeriaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\EnfermeriaUI.designer.cs">
+      <DependentUpon>EnfermeriaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\GlucometriasUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\GlucometriasUI.Designer.cs">
+      <DependentUpon>GlucometriasUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\InsumosUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\InsumosUI.Designer.cs">
+      <DependentUpon>InsumosUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\NotasUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\NotasUI.Designer.cs">
+      <DependentUpon>NotasUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\ParaclinicosUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\ParaclinicosUI.Designer.cs">
+      <DependentUpon>ParaclinicosUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\PedidoFarmaciaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\PedidoFarmaciaUI.Designer.cs">
+      <DependentUpon>PedidoFarmaciaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\ProcedimientosUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Enfermeria\ProcedimientosUI.Designer.cs">
+      <DependentUpon>ProcedimientosUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\EstanciaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\EstanciaUI.designer.cs">
+      <DependentUpon>EstanciaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Evolucion\EvolucionMedicaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Evolucion\EvolucionMedicaUI.designer.cs">
+      <DependentUpon>EvolucionMedicaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Evolucion\InterpretacionUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Evolucion\InterpretacionUI.designer.cs">
+      <DependentUpon>InterpretacionUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Evolucion\ProblemasUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Evolucion\ProblemasUI.designer.cs">
+      <DependentUpon>ProblemasUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\FichaEnfermeriaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\FichaEnfermeriaUI.designer.cs">
+      <DependentUpon>FichaEnfermeriaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Fisioterapia\FisioterapiaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Fisioterapia\FisioterapiaUI.designer.cs">
+      <DependentUpon>FisioterapiaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Fisioterapia\HojaOxigenoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Fisioterapia\HojaOxigenoUI.Designer.cs">
+      <DependentUpon>HojaOxigenoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\HistoriaClinicaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\HistoriaClinicaUI.designer.cs">
+      <DependentUpon>HistoriaClinicaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\AnalisisUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\AnalisisUI.designer.cs">
+      <DependentUpon>AnalisisUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\AntecedenteRecienNacidoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\AntecedenteRecienNacidoUI.designer.cs">
+      <DependentUpon>AntecedenteRecienNacidoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\AntecedentesIngresoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\AntecedentesIngresoUI.designer.cs">
+      <DependentUpon>AntecedentesIngresoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\AntecedentesMaternosUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\AntecedentesMaternosUI.designer.cs">
+      <DependentUpon>AntecedentesMaternosUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\EventoNacimientoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\EventoNacimientoUI.designer.cs">
+      <DependentUpon>EventoNacimientoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\ExamenFisicoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\ExamenFisicoUI.designer.cs">
+      <DependentUpon>ExamenFisicoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\IngresoClinicoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\IngresoMedico\IngresoClinicoUI.Designer.cs">
+      <DependentUpon>IngresoClinicoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\ListadoPacienteUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\ListadoPacienteUI.Designer.cs">
+      <DependentUpon>ListadoPacienteUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\IndicacionesUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\IndicacionesUI.designer.cs">
+      <DependentUpon>IndicacionesUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\InfusionImpregnacionUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\InfusionImpregnacionUI.designer.cs">
+      <DependentUpon>InfusionImpregnacionUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\MedicamentosUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\MedicamentosUI.Designer.cs">
+      <DependentUpon>MedicamentosUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\MezclaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\MezclaUI.Designer.cs">
+      <DependentUpon>MezclaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\OrdenMedicaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\OrdenMedicaUI.Designer.cs">
+      <DependentUpon>OrdenMedicaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\OxigenoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\OxigenoUI.Designer.cs">
+      <DependentUpon>OxigenoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\ProcedimientosUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\ProcedimientosUI.Designer.cs">
+      <DependentUpon>ProcedimientosUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\ResultadoExamen\LaboratorioUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\OrdenMedica\ResultadoExamen\LaboratorioUI.designer.cs">
+      <DependentUpon>LaboratorioUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Remision\Anexo9UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Remision\Anexo9UI.designer.cs">
+      <DependentUpon>Anexo9UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Remision\RemisionUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Remision\RemisionUI.designer.cs">
+      <DependentUpon>RemisionUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\ResultadoOrdenMedicaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\ResultadoOrdenMedicaUI.designer.cs">
+      <DependentUpon>ResultadoOrdenMedicaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\EcocardiogramaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\EcocardiogramaUI.designer.cs">
+      <DependentUpon>EcocardiogramaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\HemodialisisUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\HemodialisisUI.designer.cs">
+      <DependentUpon>HemodialisisUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\InformeQuirurgicoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\InformeQuirurgicoUI.designer.cs">
+      <DependentUpon>InformeQuirurgicoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\InterconsultasUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\InterconsultasUI.designer.cs">
+      <DependentUpon>InterconsultasUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\JustificacionAntibioticoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\JustificacionAntibioticoUI.designer.cs">
+      <DependentUpon>JustificacionAntibioticoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\ResultadoLaboratorioUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\ResultadoLaboratorioUI.designer.cs">
+      <DependentUpon>ResultadoLaboratorioUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\SolicitudMedicamentoNoPosUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\SolicitudMedicamentoNoPosUI.designer.cs">
+      <DependentUpon>SolicitudMedicamentoNoPosUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\TransfusionSanguineaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\Resultado\TransfusionSanguineaUI.designer.cs">
+      <DependentUpon>TransfusionSanguineaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\ResumenFacturaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\ResumenFacturaUI.Designer.cs">
+      <DependentUpon>ResumenFacturaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\SabanaEnfermeriaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\SabanaEnfermeriaUI.Designer.cs">
+      <DependentUpon>SabanaEnfermeriaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaClinica\SolicitudLabUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaClinica\SolicitudLabUI.Designer.cs">
+      <DependentUpon>SolicitudLabUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso\AdmisionUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingreso\AdmisionUI.Designer.cs">
+      <DependentUpon>AdmisionUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso\Anexo1UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingreso\Anexo1UI.Designer.cs">
+      <DependentUpon>Anexo1UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso\Anexo2UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingreso\Anexo2UI.Designer.cs">
+      <DependentUpon>Anexo2UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso\Anexo3UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingreso\Anexo3UI.Designer.cs">
+      <DependentUpon>Anexo3UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso\HistorialAtencionUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingreso\HistorialAtencionUI.Designer.cs">
+      <DependentUpon>HistorialAtencionUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso\IngresoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingreso\IngresoUI.Designer.cs">
+      <DependentUpon>IngresoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso\ManualTarifarioServicioUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingreso\ManualTarifarioServicioUI.Designer.cs">
+      <DependentUpon>ManualTarifarioServicioUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso\PacienteUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingreso\PacienteUI.Designer.cs">
+      <DependentUpon>PacienteUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginUI.designer.cs">
+      <DependentUpon>LoginUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrinicipaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrinicipaUI.designer.cs">
+      <DependentUpon>PrinicipaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="General\BusquedaGeneralUI.resx">
+      <DependentUpon>BusquedaGeneralUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\VentanaEntradaDatosUI.resx">
+      <DependentUpon>VentanaEntradaDatosUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Configuracion\ConfiguracionProcedimientoMedicoUI.resx">
+      <DependentUpon>ConfiguracionProcedimientoMedicoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\EgresoUI.resx">
+      <DependentUpon>EgresoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Enfermeria\EnfermeriaUI.resx">
+      <DependentUpon>EnfermeriaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Enfermeria\GlucometriasUI.resx">
+      <DependentUpon>GlucometriasUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Enfermeria\InsumosUI.resx">
+      <DependentUpon>InsumosUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Enfermeria\NotasUI.resx">
+      <DependentUpon>NotasUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Enfermeria\ParaclinicosUI.resx">
+      <DependentUpon>ParaclinicosUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Enfermeria\PedidoFarmaciaUI.resx">
+      <DependentUpon>PedidoFarmaciaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Enfermeria\ProcedimientosUI.resx">
+      <DependentUpon>ProcedimientosUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\EstanciaUI.resx">
+      <DependentUpon>EstanciaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Evolucion\EvolucionMedicaUI.resx">
+      <DependentUpon>EvolucionMedicaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Evolucion\InterpretacionUI.resx">
+      <DependentUpon>InterpretacionUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Evolucion\ProblemasUI.resx">
+      <DependentUpon>ProblemasUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\FichaEnfermeriaUI.resx">
+      <DependentUpon>FichaEnfermeriaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Fisioterapia\FisioterapiaUI.resx">
+      <DependentUpon>FisioterapiaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Fisioterapia\HojaOxigenoUI.resx">
+      <DependentUpon>HojaOxigenoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\HistoriaClinicaUI.resx">
+      <DependentUpon>HistoriaClinicaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\IngresoMedico\AnalisisUI.resx">
+      <DependentUpon>AnalisisUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\IngresoMedico\AntecedenteRecienNacidoUI.resx">
+      <DependentUpon>AntecedenteRecienNacidoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\IngresoMedico\AntecedentesIngresoUI.resx">
+      <DependentUpon>AntecedentesIngresoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\IngresoMedico\AntecedentesMaternosUI.resx">
+      <DependentUpon>AntecedentesMaternosUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\IngresoMedico\EventoNacimientoUI.resx">
+      <DependentUpon>EventoNacimientoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\IngresoMedico\ExamenFisicoUI.resx">
+      <DependentUpon>ExamenFisicoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\IngresoMedico\IngresoClinicoUI.resx">
+      <DependentUpon>IngresoClinicoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\ListadoPacienteUI.resx">
+      <DependentUpon>ListadoPacienteUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\OrdenMedica\IndicacionesUI.resx">
+      <DependentUpon>IndicacionesUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\OrdenMedica\InfusionImpregnacionUI.resx">
+      <DependentUpon>InfusionImpregnacionUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\OrdenMedica\MedicamentosUI.resx">
+      <DependentUpon>MedicamentosUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\OrdenMedica\MezclaUI.resx">
+      <DependentUpon>MezclaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\OrdenMedica\OrdenMedicaUI.resx">
+      <DependentUpon>OrdenMedicaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\OrdenMedica\OxigenoUI.resx">
+      <DependentUpon>OxigenoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\OrdenMedica\ProcedimientosUI.resx">
+      <DependentUpon>ProcedimientosUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\OrdenMedica\ResultadoExamen\LaboratorioUI.resx">
+      <DependentUpon>LaboratorioUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Remision\Anexo9UI.resx">
+      <DependentUpon>Anexo9UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Remision\RemisionUI.resx">
+      <DependentUpon>RemisionUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Resultado\ResultadoOrdenMedicaUI.resx">
+      <DependentUpon>ResultadoOrdenMedicaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Resultado\EcocardiogramaUI.resx">
+      <DependentUpon>EcocardiogramaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Resultado\HemodialisisUI.resx">
+      <DependentUpon>HemodialisisUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Resultado\InformeQuirurgicoUI.resx">
+      <DependentUpon>InformeQuirurgicoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Resultado\InterconsultasUI.resx">
+      <DependentUpon>InterconsultasUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Resultado\JustificacionAntibioticoUI.resx">
+      <DependentUpon>JustificacionAntibioticoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Resultado\ResultadoLaboratorioUI.resx">
+      <DependentUpon>ResultadoLaboratorioUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Resultado\SolicitudMedicamentoNoPosUI.resx">
+      <DependentUpon>SolicitudMedicamentoNoPosUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\Resultado\TransfusionSanguineaUI.resx">
+      <DependentUpon>TransfusionSanguineaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\ResumenFacturaUI.resx">
+      <DependentUpon>ResumenFacturaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\SabanaEnfermeriaUI.resx">
+      <DependentUpon>SabanaEnfermeriaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaClinica\SolicitudLabUI.resx">
+      <DependentUpon>SolicitudLabUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingreso\AdmisionUI.resx">
+      <DependentUpon>AdmisionUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingreso\Anexo1UI.resx">
+      <DependentUpon>Anexo1UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingreso\Anexo2UI.resx">
+      <DependentUpon>Anexo2UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingreso\Anexo3UI.resx">
+      <DependentUpon>Anexo3UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingreso\HistorialAtencionUI.resx">
+      <DependentUpon>HistorialAtencionUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingreso\IngresoUI.resx">
+      <DependentUpon>IngresoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingreso\ManualTarifarioServicioUI.resx">
+      <DependentUpon>ManualTarifarioServicioUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingreso\PacienteUI.resx">
+      <DependentUpon>PacienteUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginUI.resx">
+      <DependentUpon>LoginUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrinicipaUI.resx">
+      <DependentUpon>PrinicipaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Recursos\Actions-blue-arrow-undo-icon %281%29.png" />
+    <Content Include="Recursos\Actions-document-new-icon.png" />
+    <Content Include="Recursos\Actions-document-revert-icon.png" />
+    <Content Include="Recursos\Actions-file-close-icon1.png" />
+    <Content Include="Recursos\Actions-file-close-icon3.png" />
+    <Content Include="Recursos\Actions-project-development-close-icon.png" />
+    <Content Include="Recursos\add.png" />
+    <Content Include="Recursos\administrativo-ico.png" />
+    <Content Include="Recursos\almacen-ico.png" />
+    <Content Include="Recursos\anular24.png" />
+    <Content Include="Recursos\Apps-menu-editor-icon.png" />
+    <Content Include="Recursos\arrow-undo-icon.png" />
+    <Content Include="Recursos\back-arrow.png" />
+    <Content Include="Recursos\bt-editar.jpg" />
+    <Content Include="Recursos\btn-anular.jpg" />
+    <Content Include="Recursos\btn-buscar.jpg" />
+    <Content Include="Recursos\btn-cancelar.jpg" />
+    <Content Include="Recursos\btn-guardar.jpg" />
+    <Content Include="Recursos\btn-lupa.jpg" />
+    <Content Include="Recursos\btn-nuevo.jpg" />
+    <Content Include="Recursos\candado-128.png" />
+    <Content Include="Recursos\candado-1281.png" />
+    <Content Include="Recursos\checked %281%29.png" />
+    <Content Include="Recursos\checked.png" />
+    <Content Include="Recursos\contabilidad-ico.png" />
+    <Content Include="Recursos\curriculum %281%29.png" />
+    <Content Include="Recursos\Database-Add-icon.png" />
+    <Content Include="Recursos\Database-Delete-icon.png" />
+    <Content Include="Recursos\disk-icon.png" />
+    <Content Include="Recursos\Document-copy-icon.png" />
+    <Content Include="Recursos\document.png" />
+    <Content Include="Recursos\edit.png" />
+    <Content Include="Recursos\error %281%29.png" />
+    <Content Include="Recursos\error.png" />
+    <Content Include="Recursos\farmacia-ico.png" />
+    <Content Include="Recursos\file %281%29.png" />
+    <Content Include="Recursos\Floppy-Drive-icon.png" />
+    <Content Include="Recursos\general-ico.png" />
+    <Content Include="Recursos\guardar16.png" />
+    <Content Include="Recursos\historia_clinica-ico.png" />
+    <Content Include="Recursos\hospital-reception.png" />
+    <Content Include="Recursos\Industry-Trash-icon1.png" />
+    <Content Include="Recursos\infusion16.png" />
+    <Content Include="Recursos\kisspng-computer-icons-briefcase-baggage-symbol-icon-baggage-5ab13b3b18b498.73944357152156447510121.jpg" />
+    <Content Include="Recursos\laboratorio-ico.png" />
+    <Content Include="Recursos\limpiar-16.png" />
+    <Content Include="Recursos\limpiar-24.png" />
+    <Content Include="Recursos\limpiar-241.png" />
+    <Content Include="Recursos\login-btIngresar-fondo.jpg" />
+    <Content Include="Recursos\login-fondo.jpg" />
+    <Content Include="Recursos\opciondelete.png" />
+    <Content Include="Recursos\pdf24.png" />
+    <Content Include="Recursos\pencil-icon.png" />
+    <Content Include="Recursos\plus %281%29.png" />
+    <Content Include="Recursos\plus.png" />
+    <Content Include="Recursos\principal-fondo.jpg" />
+    <Content Include="Recursos\print %281%29.png" />
+    <Content Include="Recursos\print %282%29.png" />
+    <Content Include="Recursos\save.png" />
+    <Content Include="Recursos\search %281%29.png" />
+    <Content Include="Recursos\Search-icon %281%29.png" />
+    <Content Include="Recursos\search-icon.png" />
+    <Content Include="Recursos\search.png" />
+    <Content Include="Recursos\seguridad-ico.png" />
+    <Content Include="Recursos\target.png" />
+    <Content Include="Recursos\team %281%29.png" />
+    <Content Include="Recursos\team %282%29.png" />
+    <Content Include="Recursos\team %282%291.png" />
+    <Content Include="Recursos\user %281%29.png" />
+    <Content Include="Recursos\User-Blue-icon %281%29.png" />
+    <Content Include="Recursos\User-Green-icon %281%29.png" />
+    <Content Include="Recursos\User-Orange-icon.png" />
+    <Content Include="Recursos\User-Red-icon %281%29.png" />
+    <Content Include="Recursos\User-Yellow-icon %281%29.png" />
+    <Content Include="Recursos\Very-Basic-Search-icon1.png" />
+    <Content Include="Recursos\Very-Basic-Search-icon3.png" />
+    <Content Include="Recursos\Very-Basic-Settings-Filled-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidad\Entidad.csproj">
+      <Project>{B01A2A9C-5D04-4DED-BF5E-048990D1A898}</Project>
+      <Name>Entidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{f5a2b4fb-128f-4255-9a06-07a649bace9e}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuracion\" />
+    <Folder Include="Facturacion\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
