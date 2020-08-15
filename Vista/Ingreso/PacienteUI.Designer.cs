@@ -1,6 +1,4 @@
-﻿using System.util;
-
-namespace Vista.Ingreso
+﻿namespace Vista.Ingreso
 {
     partial class PacienteUI
     {

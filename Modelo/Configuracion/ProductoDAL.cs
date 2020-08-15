@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using Modelo.Configuracion;
 using Modelo.General;
 using Modelo.General.Constantes;
+using Entidad.Almacen;
 
 namespace Modelo.Inventario
 {
@@ -36,7 +37,7 @@ namespace Modelo.Inventario
             }
 
         }
-        public static void anular(Producto objProducto)
+        public static void anular(Producto objProducto) 
         {
             try
             {
@@ -53,7 +54,6 @@ namespace Modelo.Inventario
             {
                 throw ex;
             }
-
         }
     }
 }

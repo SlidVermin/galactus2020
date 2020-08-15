@@ -11,6 +11,7 @@
     <AssemblyName>Entidad</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <CodeAnalysisRuleSet>..\.sonarlint\galactus1.0csharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\.sonarlint\galactus1.0csharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\.sonarlint\galactus1.0csharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -40,14 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almacen\Bodega.cs" />
+    <Compile Include="Almacen\Cliente.cs" />
+    <Compile Include="Almacen\Equivalencia.cs" />
+    <Compile Include="Almacen\GeneralTercero.cs" />
+    <Compile Include="Almacen\Producto.cs" />
+    <Compile Include="Almacen\Proveedor.cs" />
     <Compile Include="Configuracion\ConfiguracionGeneral.cs" />
     <Compile Include="Configuracion\ConfiguracionParaclinico.cs" />
     <Compile Include="Configuracion\Empresa.cs" />
-    <Compile Include="Configuracion\Equivalencia.cs" />
     <Compile Include="Configuracion\ListaPrecioEquivalencia.cs" />
-    <Compile Include="Configuracion\Producto.cs" />
     <Compile Include="Configuracion\TipoExamen.cs" />
-    <Compile Include="Configuracion\Usuario.cs" />
+    <Compile Include="Seguridad\Usuario.cs" />
     <Compile Include="Facturacion\FacturaPaciente.cs" />
     <Compile Include="General\Busqueda.cs" />
     <Compile Include="General\InformacionTag.cs" />
@@ -79,13 +86,21 @@
     <Compile Include="Ingreso\Configuracion\ManualServicio.cs" />
     <Compile Include="Ingreso\ManualTarifarioServicio.cs" />
     <Compile Include="Ingreso\Paciente.cs" />
-    <Compile Include="Inventario\Bodega.cs" />
-    <Compile Include="Inventario\Cliente.cs" />
-    <Compile Include="Inventario\GeneralTercero.cs" />
-    <Compile Include="Inventario\Proveedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Facturacion\Almacen\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.sonarlint\galactus1.0csharp.ruleset">
+      <Link>galactus1.0csharp.ruleset</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\galactus1.0\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

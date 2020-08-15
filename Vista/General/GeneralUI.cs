@@ -8,10 +8,6 @@ using System.Linq;
 using System.Windows.Forms;
 using System.IO;
 using Vista.General.Constantes;
-using System.Xml.Linq;
-using Modelo.General;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using static Modelo.Negocio.GeneralBL;
@@ -29,66 +25,57 @@ namespace Vista.General
             DataTable dtAux = new DataTable();
             dtAux = dt.Clone();
             DataRow drFila = dtAux.NewRow();
-            try
-            {
-                drFila[0] = "-1";
-                drFila[1] = "----Seleccionar----";
-                dtAux.Rows.Add(drFila);
 
-                if (dt.Rows.Count > 0)
+            drFila[0] = "-1";
+            drFila[1] = "----Seleccionar----";
+            dtAux.Rows.Add(drFila);
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dRows in dt.Select())
                 {
-                    foreach (DataRow dRows in dt.Select())
-                    {
-                        dtAux.ImportRow(dRows);
-                    }
-
-                    combo.DataSource = dtAux;
-                    combo.DisplayMember = displayMember;
-                    combo.ValueMember = valueMember;
-
-                    combo.AutoCompleteMode = AutoCompleteMode.None;
-                    combo.AutoCompleteSource = AutoCompleteSource.None;
-                    combo.DropDownStyle = ComboBoxStyle.DropDownList;
+                    dtAux.ImportRow(dRows);
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+
+                combo.DataSource = dtAux;
+                combo.DisplayMember = displayMember;
+                combo.ValueMember = valueMember;
+
+                combo.AutoCompleteMode = AutoCompleteMode.None;
+                combo.AutoCompleteSource = AutoCompleteSource.None;
+                combo.DropDownStyle = ComboBoxStyle.DropDownList;
             }
         }
+        
         public static void llenarCombo(string query,
                                        string valueMember,
                                        string displayMember,
                                        ComboBox combo)
         {
-            DataTable dt = new DataTable();
+            /*DataTable dt = new DataTable();
             DataRow drFila = dt.NewRow();
-            try
-            {
-                dt.Columns.Add(valueMember);
-                dt.Columns.Add(displayMember);
-                drFila[0] = "-1";
-                drFila[1] = "----Seleccionar----";
-                dt.Rows.Add(drFila);
-                using (SqlDataAdapter adaptador = new SqlDataAdapter(query, UsuarioActual.getConexion()))
-                {
-                    adaptador.Fill(dt);
-                }
-                if (dt.Rows.Count > 0)
-                {
-                    combo.DataSource = dt;
-                    combo.DisplayMember = displayMember;
-                    combo.ValueMember = valueMember;
 
-                    combo.AutoCompleteMode = AutoCompleteMode.None;
-                    combo.AutoCompleteSource = AutoCompleteSource.None;
-                    combo.DropDownStyle = ComboBoxStyle.DropDownList;
-                }
-            }
-            catch (Exception ex)
+            dt.Columns.Add(valueMember);
+            dt.Columns.Add(displayMember);
+            drFila[0] = "-1";
+            drFila[1] = "----Seleccionar----";
+            dt.Rows.Add(drFila);
+            using (SqlDataAdapter adaptador = new SqlDataAdapter(query, UsuarioActual.getConexion()))
             {
-                throw ex;
+                adaptador.Fill(dt);
             }
+            if (dt.Rows.Count > 0)
+            {
+                combo.DataSource = dt;
+                combo.DisplayMember = displayMember;
+                combo.ValueMember = valueMember;
+
+                combo.AutoCompleteMode = AutoCompleteMode.None;
+                combo.AutoCompleteSource = AutoCompleteSource.None;
+                combo.DropDownStyle = ComboBoxStyle.DropDownList;
+            }*/
+
+
         }
         public static void llenarComboDependiente(ComboBox comboPadre, ComboBox comboHijo, string query)
         {
@@ -205,18 +192,12 @@ namespace Vista.General
                                      ToolStripButton btn1,
                                      ToolStripButton btn2)
         {
-            try
-            {
-                limpiarControles(formulario);
-                habilitarControles((Control)formulario);
-                deshabilitarBotones(ref menu);
-                habilitarBotones(btn1);
-                habilitarBotones(btn2);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            limpiarControles(formulario);
+            habilitarControles((Control)formulario);
+            deshabilitarBotones(ref menu);
+            habilitarBotones(btn1);
+            habilitarBotones(btn2);
+
         }
         public static void posCargadoForm(Form formulario,
                                           ToolStrip menu,
@@ -354,24 +335,18 @@ namespace Vista.General
         }
         public static void seleccionarImagen(PictureBox pictu)
         {
-            try
+
+            using (OpenFileDialog objetoSeleccion = new OpenFileDialog())
             {
-                using (OpenFileDialog objetoSeleccion = new OpenFileDialog())
+                objetoSeleccion.InitialDirectory = "";
+                objetoSeleccion.Filter = "Todos los archivos de imagen | *.jpg; *.jpeg; *.png; *.bmp; *.gif; *.pdf; *| PDF | *.pdf | JPEG | *.jpeg; *.jpg | BMP | *.bmp | GIF | *.gif | PNG | *.png";
+                objetoSeleccion.Title = "Seleccionar Archivo";
+                if (objetoSeleccion.ShowDialog() == DialogResult.OK)
                 {
-                    objetoSeleccion.InitialDirectory = "";
-                    objetoSeleccion.Filter = "Todos los archivos de imagen | *.jpg; *.jpeg; *.png; *.bmp; *.gif; *.pdf; *| PDF | *.pdf | JPEG | *.jpeg; *.jpg | BMP | *.bmp | GIF | *.gif | PNG | *.png";
-                    objetoSeleccion.Title = "Seleccionar Archivo";
-                    if (objetoSeleccion.ShowDialog() == DialogResult.OK)
-                    {
-                        pictu.Image = null;
-                        pictu.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pictu.Image = System.Drawing.Image.FromFile(objetoSeleccion.FileName);
-                    }
+                    pictu.Image = null;
+                    pictu.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictu.Image = System.Drawing.Image.FromFile(objetoSeleccion.FileName);
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
             }
         }
 
@@ -390,7 +365,7 @@ namespace Vista.General
             tabPage.AutoScroll = true;
             formContenido.Show();
         }
-        
+
         public static void cargarCombosDatatable(DataTable dt, Int32 idParametro, ComboBox combo)
         {
             DataTable dtC = new DataTable();
@@ -563,8 +538,8 @@ namespace Vista.General
                 mezcla.ShowDialog();
             }
         }*/
-        
-        
+
+
         private static void SetDBLogonForReport(ConnectionInfo connectionInfo, ReportDocument reportDocument)
         {
             foreach (Table table in reportDocument.Database.Tables)
@@ -610,7 +585,7 @@ namespace Vista.General
         {
             return e.ColumnIndex == dgv.Columns[columna].Index;
         }
-        
+
         public static void buscarDevuelveFila(string query,
                                              List<string> parametros,
                                              cargarInfoFila metodo,
@@ -663,23 +638,18 @@ namespace Vista.General
                                                      ref ComboBox comboMunicipio)
         {
 
-            try
-            {
-                DataRow[] filaPais, filaDepartamento, filaMunicipio;
-                filaMunicipio = dtUbicaciones.Select("Código=" + idMunicipio + "");
+
+            DataRow[] filaPais, filaDepartamento, filaMunicipio;
+            filaMunicipio = dtUbicaciones.Select("Código=" + idMunicipio + "");
 
 
-                filaDepartamento = dtUbicaciones.Select("Código=" + filaMunicipio[0]["idPadre"] + "");
+            filaDepartamento = dtUbicaciones.Select("Código=" + filaMunicipio[0]["idPadre"] + "");
 
-                filaPais = dtUbicaciones.Select("Código=" + filaDepartamento[0]["idPadre"] + "");
-                comboPais.SelectedValue = Convert.ToString(filaPais[0]["Código"]);
-                comboDepartamento.SelectedValue = Convert.ToString(filaDepartamento[0]["Código"]);
-                comboMunicipio.SelectedValue = idMunicipio;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            filaPais = dtUbicaciones.Select("Código=" + filaDepartamento[0]["idPadre"] + "");
+            comboPais.SelectedValue = Convert.ToString(filaPais[0]["Código"]);
+            comboDepartamento.SelectedValue = Convert.ToString(filaDepartamento[0]["Código"]);
+            comboMunicipio.SelectedValue = idMunicipio;
+
         }
 
         public static bool filaValida(int fila)
@@ -765,24 +735,16 @@ namespace Vista.General
         public static DataTable copiarTablaCondicional(DataTable dtOrigen, String condicion)
         {
             DataTable dtResultado = new DataTable();
-            try
+            dtResultado = dtOrigen.Clone();
+            condicion = condicion.Replace("'%", "'<<>>");
+            condicion = condicion.Replace("%'", "<<>>'");
+            condicion = condicion.Replace("%", "");
+            condicion = condicion.Replace("'<<>>", "'%");
+            condicion = condicion.Replace("<<>>'", "%'");
+            DataRow[] filas = dtOrigen.Select(condicion);
+            foreach (DataRow row in filas)
             {
-
-                dtResultado = dtOrigen.Clone();
-                condicion = condicion.Replace("'%", "'<<>>");
-                condicion = condicion.Replace("%'", "<<>>'");
-                condicion = condicion.Replace("%", "");
-                condicion = condicion.Replace("'<<>>", "'%");
-                condicion = condicion.Replace("<<>>'", "%'");
-                DataRow[] filas = dtOrigen.Select(condicion);
-                foreach (DataRow row in filas)
-                {
-                    dtResultado.ImportRow(row);
-                }
-            }
-            catch (Exception ex)
-            {
-                Mensajes.mostrarMensajeError(ex);
+                dtResultado.ImportRow(row);
             }
             return dtResultado;
         }

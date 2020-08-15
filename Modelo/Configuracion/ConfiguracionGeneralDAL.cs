@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using Modelo.General.Constantes;
 using Modelo.Configuracion;
 using Modelo.General;
+using Entidad.Configuracion;
 
 namespace Modelo.Configuracion
 {

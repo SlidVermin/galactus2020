@@ -1,4 +1,4 @@
-﻿using Modelo.General;
+﻿using Entidad.General;
 using Modelo.Negocio;
 using Negocio.General;
 using System;

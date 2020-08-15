@@ -212,26 +212,26 @@ namespace Vista.HistoriaClinica.Resultado
 
         private void tsbBuscarAyudante_Click(object sender, EventArgs e)
         {
-           /* List<string> parametro = new List<string>();
-            parametro.Add(string.Empty);
+            /* List<string> parametro = new List<string>();
+             parametro.Add(string.Empty);
 
-            GeneralC.buscarDevuelveFila(Sentencias.EMPLEADO_CARGO_BUSCAR,
-                                    parametro,
-                                    new GeneralC.cargarInfoFila(cargarAyudante),
-                                    Titulos.TITULO_BUSCAR_AYUDANTE,
-                                    true);*/
+             GeneralC.buscarDevuelveFila(Sentencias.EMPLEADO_CARGO_BUSCAR,
+                                     parametro,
+                                     new GeneralC.cargarInfoFila(cargarAyudante),
+                                     Titulos.TITULO_BUSCAR_AYUDANTE,
+                                     true);*/
         }
 
         private void tsbBuscarAnastesiologo_Click(object sender, EventArgs e)
         {
-           /* List<string> parametro = new List<string>();
-            parametro.Add(string.Empty);
+            /* List<string> parametro = new List<string>();
+             parametro.Add(string.Empty);
 
-            GeneralC.buscarDevuelveFila(Sentencias.EMPLEADO_CARGO_BUSCAR,
-                                    parametro,
-                                    new GeneralC.cargarInfoFila(cargarAnastesiologo),
-                                    Titulos.TITULO_BUSCAR_ANASTESIOLOGO,
-                                    true);*/
+             GeneralC.buscarDevuelveFila(Sentencias.EMPLEADO_CARGO_BUSCAR,
+                                     parametro,
+                                     new GeneralC.cargarInfoFila(cargarAnastesiologo),
+                                     Titulos.TITULO_BUSCAR_ANASTESIOLOGO,
+                                     true);*/
         }
 
         private void tsbBuscarAnastesia_Click(object sender, EventArgs e)
@@ -266,7 +266,8 @@ namespace Vista.HistoriaClinica.Resultado
         }
         #endregion
 
-        private void cargarInformacionAtencion(DataRow dRows) {
+        private void cargarInformacionAtencion(DataRow dRows)
+        {
             txtAtencion.Text = dRows.Field<int>("idAtencion").ToString();
             txtPaciente.Text = dRows.Field<string>("paciente").ToString();
             txtIdentificacion.Text = dRows.Field<string>("Documento").ToString();
@@ -275,48 +276,44 @@ namespace Vista.HistoriaClinica.Resultado
             txtProcedimiento.Text = dRows.Field<string>("procedimiento").ToString();
             txtCodigoAdministradora.Text = dRows.Field<int>("IdContrato").ToString();
             txtAdministradora.Text = dRows.Field<string>("Nombre").ToString();
-            dtFecha.Value= dRows.Field<DateTime>("FechaAdmision");
-            informeQx.idOrdenMedica= dRows.Field<int>("IdOrdenMedica");
+            dtFecha.Value = dRows.Field<DateTime>("FechaAdmision");
+            informeQx.idOrdenMedica = dRows.Field<int>("IdOrdenMedica");
             informeQx.idProcedimiento = dRows.Field<int>("IdProcedimiento");
         }
 
-        private void crearNuevaInformeQx() {
+        private void crearNuevaInformeQx()
+        {
             informeQx.notaQuirurgica = txtNota.Text;
             informeQx.fechaInicio = dtpFechaInicio.Value;
             informeQx.fechaFin = dtpFechaFin.Value;
         }
         private void cargarInformeQX(DataRow dRows)
         {
-            try
-            {
-                informeQx.idInformeQX = dRows.Field<int>("idInformeQX");
-                informeQx.idVia = dRows.Field<int>("idVia");
-                informeQx.idAnastesia = dRows.Field<int>("idAnastesia");
-                informeQx.idAnastesiologo = dRows.Field<int>("idAnastesiologo");
-                informeQx.idAyudante = dRows.Field<int>("idAyudante");
 
-                txtAyudante.Text = dRows.Field<string>("Ayudante");
-                txtVia.Text= dRows.Field<string>("Via");
-                txtAnastesia.Text = dRows.Field<string>("Anastesia");
-                txtAnastesiologo.Text = dRows.Field<string>("Anastesiologo");
-                txtNota.Text= dRows.Field<string>("Nota");
+            informeQx.idInformeQX = dRows.Field<int>("idInformeQX");
+            informeQx.idVia = dRows.Field<int>("idVia");
+            informeQx.idAnastesia = dRows.Field<int>("idAnastesia");
+            informeQx.idAnastesiologo = dRows.Field<int>("idAnastesiologo");
+            informeQx.idAyudante = dRows.Field<int>("idAyudante");
 
-                informeQx.fechaInicio = dRows.Field<DateTime>("Fecha Informe");
-                informeQx.fechaFin = dRows.Field<DateTime>("FechaFin");
-              
-                          
-                cargarInformacionAtencion(dRows);
-                cargarInformeQxMedicamento();
-                cargarInformeQxProcedimiento();
+            txtAyudante.Text = dRows.Field<string>("Ayudante");
+            txtVia.Text = dRows.Field<string>("Via");
+            txtAnastesia.Text = dRows.Field<string>("Anastesia");
+            txtAnastesiologo.Text = dRows.Field<string>("Anastesiologo");
+            txtNota.Text = dRows.Field<string>("Nota");
 
-                GeneralUI.posBuscar(this, tstMenuPatron, tsbNuevo, tstModificar, tsbBuscar, tsbAnular);
-                btnSalir.Enabled = true;
+            informeQx.fechaInicio = dRows.Field<DateTime>("Fecha Informe");
+            informeQx.fechaFin = dRows.Field<DateTime>("FechaFin");
 
-            }
-            catch (Exception ex)
-            {
-               //Mensajes.mensajeError(ex);
-            }        
+
+            cargarInformacionAtencion(dRows);
+            cargarInformeQxMedicamento();
+            cargarInformeQxProcedimiento();
+
+            GeneralUI.posBuscar(this, tstMenuPatron, tsbNuevo, tstModificar, tsbBuscar, tsbAnular);
+            btnSalir.Enabled = true;
+
+
         }
 
         private List<string> listaParametroOculto()
@@ -385,7 +382,8 @@ namespace Vista.HistoriaClinica.Resultado
              }*/
             return false;
         }
-        private void cargarVia(DataRow dRows) {
+        private void cargarVia(DataRow dRows)
+        {
             informeQx.idVia = dRows.Field<int>("codigo");
             txtVia.Text = dRows.Field<string>("Descripcion");
         }
@@ -404,22 +402,23 @@ namespace Vista.HistoriaClinica.Resultado
             informeQx.idAnastesia = dRows.Field<int>("codigo");
             txtAnastesia.Text = dRows.Field<string>("descripcion");
         }
-        private void desactivadoPermanentemente() {
+        private void desactivadoPermanentemente()
+        {
             txtAyudante.ReadOnly = true;
             txtVia.ReadOnly = true;
             txtAnastesia.ReadOnly = true;
             txtAnastesiologo.ReadOnly = true;
         }
 
-       #region tabProcedimiento
+        #region tabProcedimiento
         public void enlazarDgvProcedimiento()
         {
-                dgvProcedimientos.AutoGenerateColumns = false;
-                dgvProcedimientos.Columns["cups"].DataPropertyName = "cups";
-                dgvProcedimientos.Columns["descripcion"].DataPropertyName = "descripcion";
-                dgvProcedimientos.Columns["cantidad"].DataPropertyName = "cantidad";
-                dgvProcedimientos.Columns["justificacion"].DataPropertyName = "Observacion";
-                dgvProcedimientos.DataSource = informeQx.dtProcedimiento;
+            dgvProcedimientos.AutoGenerateColumns = false;
+            dgvProcedimientos.Columns["cups"].DataPropertyName = "cups";
+            dgvProcedimientos.Columns["descripcion"].DataPropertyName = "descripcion";
+            dgvProcedimientos.Columns["cantidad"].DataPropertyName = "cantidad";
+            dgvProcedimientos.Columns["justificacion"].DataPropertyName = "Observacion";
+            dgvProcedimientos.DataSource = informeQx.dtProcedimiento;
         }
         void cargarProcedimiento(DataRow filaResultado)
         {
@@ -433,78 +432,78 @@ namespace Vista.HistoriaClinica.Resultado
         }
         private void cargarInformeQxProcedimiento()
         {
-           /* List<string> paramtro = new List<string>();
-            paramtro.Add(informeQx.Auditoria.ToString());
-            paramtro.Add(informeQx.idInformeQX.ToString());
-            informeQx.dtProcedimiento = GeneralC.cargarResultadosSQL(Sentencias.CARGAR_INFORME_QX_PROCEDIMIENTO, paramtro);
-            dgvProcedimientos.DataSource = informeQx.dtProcedimiento;*/
+            /* List<string> paramtro = new List<string>();
+             paramtro.Add(informeQx.Auditoria.ToString());
+             paramtro.Add(informeQx.idInformeQX.ToString());
+             informeQx.dtProcedimiento = GeneralC.cargarResultadosSQL(Sentencias.CARGAR_INFORME_QX_PROCEDIMIENTO, paramtro);
+             dgvProcedimientos.DataSource = informeQx.dtProcedimiento;*/
         }
         private void dgvProcedimientos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           /* if (txtAtencion.Text != string.Empty)
-            {
-                if (e.RowIndex >= 0)
-                {
-                    GeneralUI.deshabilitarColumnas(dgvProcedimientos);
-                    if (edicion)
-                    {
-                        dgvProcedimientos.Columns["cantidad"].ReadOnly = false;
-                        if (GeneralUI.verificarUbicacionCelda(e, dgvProcedimientos, "quitar") & e.RowIndex < dgvProcedimientos.Rows.Count - 1)
-                        {
-                            if (Mensajes.preguntaAnular())
-                            {
-                                dgvProcedimientos.Rows.RemoveAt(e.RowIndex);
-                            }
-                        }
-                        else if (GeneralC.verificarUbicacionCelda(e, dgvProcedimientos, "agregar") & e.RowIndex == dgvProcedimientos.Rows.Count - 1)
-                        {
-                            try
-                            {
-                                List<string> parametros = new List<string>();
+            /* if (txtAtencion.Text != string.Empty)
+             {
+                 if (e.RowIndex >= 0)
+                 {
+                     GeneralUI.deshabilitarColumnas(dgvProcedimientos);
+                     if (edicion)
+                     {
+                         dgvProcedimientos.Columns["cantidad"].ReadOnly = false;
+                         if (GeneralUI.verificarUbicacionCelda(e, dgvProcedimientos, "quitar") & e.RowIndex < dgvProcedimientos.Rows.Count - 1)
+                         {
+                             if (Mensajes.preguntaAnular())
+                             {
+                                 dgvProcedimientos.Rows.RemoveAt(e.RowIndex);
+                             }
+                         }
+                         else if (GeneralC.verificarUbicacionCelda(e, dgvProcedimientos, "agregar") & e.RowIndex == dgvProcedimientos.Rows.Count - 1)
+                         {
+                             try
+                             {
+                                 List<string> parametros = new List<string>();
 
-                                DataTable tablaParametros = new DataTable();
-                                DataTable tablasSeleccionado = new DataTable();
+                                 DataTable tablaParametros = new DataTable();
+                                 DataTable tablasSeleccionado = new DataTable();
 
-                                tablaParametros.Columns.Add("Parametro", Type.GetType("System.Object"));
-                                tablaParametros.Columns.Add("Valor", Type.GetType("System.Object"));
+                                 tablaParametros.Columns.Add("Parametro", Type.GetType("System.Object"));
+                                 tablaParametros.Columns.Add("Valor", Type.GetType("System.Object"));
 
-                                object[] myObjArray = { "@pIdAtencion", txtAtencion.Text };
-                                object[] myObjArray1 = { "@pFiltro", "" };
+                                 object[] myObjArray = { "@pIdAtencion", txtAtencion.Text };
+                                 object[] myObjArray1 = { "@pFiltro", "" };
 
-                                DataView view = new DataView(informeQx.dtProcedimiento);
+                                 DataView view = new DataView(informeQx.dtProcedimiento);
 
-                                tablasSeleccionado = view.ToTable(true, new string[] { "idProcedimiento" }).Copy();
-                                tablasSeleccionado.Columns.Add("valor");
-                                tablasSeleccionado.Rows.RemoveAt(tablasSeleccionado.Rows.Count - 1);
-                                object[] myObjArray2 = { "@pTblSeleccionados", tablasSeleccionado };
+                                 tablasSeleccionado = view.ToTable(true, new string[] { "idProcedimiento" }).Copy();
+                                 tablasSeleccionado.Columns.Add("valor");
+                                 tablasSeleccionado.Rows.RemoveAt(tablasSeleccionado.Rows.Count - 1);
+                                 object[] myObjArray2 = { "@pTblSeleccionados", tablasSeleccionado };
 
-                                tablaParametros.Rows.Add(myObjArray);
-                                tablaParametros.Rows.Add(myObjArray1);
-                                tablaParametros.Rows.Add(myObjArray2);
+                                 tablaParametros.Rows.Add(myObjArray);
+                                 tablaParametros.Rows.Add(myObjArray1);
+                                 tablaParametros.Rows.Add(myObjArray2);
 
-                                GeneralC.buscarDevuelveFila(Sentencias.ORDEN_CLINICA_BUSCAR_PROCEDIMIENTOS,
-                                                            parametros,
-                                                            new GeneralC.cargarInfoFila(cargarProcedimiento),
-                                                            Mensajes.BUSQUEDA_PROCEDIMIENTOS,
-                                                            true,
-                                                            null,
-                                                            tablasSeleccionado,
-                                                            tablaParametros);
-                            }
-                            catch (Exception ex)
-                            {
-                                Mensajes.mensajeError(ex);
-                            }
-                        }
-                    }
-                    abrirObservacion();
-                }
-            }
+                                 GeneralC.buscarDevuelveFila(Sentencias.ORDEN_CLINICA_BUSCAR_PROCEDIMIENTOS,
+                                                             parametros,
+                                                             new GeneralC.cargarInfoFila(cargarProcedimiento),
+                                                             Mensajes.BUSQUEDA_PROCEDIMIENTOS,
+                                                             true,
+                                                             null,
+                                                             tablasSeleccionado,
+                                                             tablaParametros);
+                             }
+                             catch (Exception ex)
+                             {
+                                 Mensajes.mensajeError(ex);
+                             }
+                         }
+                     }
+                     abrirObservacion();
+                 }
+             }
 
-            else {
+             else {
 
-                Mensajes.mensajeAdvertencia("Favor Cargar los datos del paciente");
-            }*/
+                 Mensajes.mensajeAdvertencia("Favor Cargar los datos del paciente");
+             }*/
         }
         private void abrirObservacion()
         {
@@ -513,7 +512,7 @@ namespace Vista.HistoriaClinica.Resultado
                                               "cups",
                                               edicion);
         }
-         private void dgvProcedimientos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void dgvProcedimientos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (string.IsNullOrEmpty(dgvProcedimientos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
             {
@@ -524,7 +523,7 @@ namespace Vista.HistoriaClinica.Resultado
         {
             abrirObservacion();
         }
-       private void dgvProcedimientos_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void dgvProcedimientos_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             dgvProcedimientos.CancelEdit();
             Mensajes.mensajeInformacion(Mensajes.CANTIDAD_INVALIDA);
@@ -532,7 +531,7 @@ namespace Vista.HistoriaClinica.Resultado
 
         #endregion
 
-       #region tabMedicamento
+        #region tabMedicamento
         public void enlazarDgvMedicamento()
         {
             dgvMedicamento.AutoGenerateColumns = false;
@@ -552,75 +551,75 @@ namespace Vista.HistoriaClinica.Resultado
         }
         private void cargarInformeQxMedicamento()
         {
-           /* List<string> paramtro = new List<string>();
-            paramtro.Add(informeQx.Auditoria.ToString());
-            paramtro.Add(informeQx.idInformeQX.ToString());
-            informeQx.dtMedicamento = GeneralC.cargarResultadosSQL(Sentencias.CARGAR_INFORME_QX_MEDICAMENTO, paramtro);
-            dgvMedicamento.DataSource = informeQx.dtMedicamento;*/
+            /* List<string> paramtro = new List<string>();
+             paramtro.Add(informeQx.Auditoria.ToString());
+             paramtro.Add(informeQx.idInformeQX.ToString());
+             informeQx.dtMedicamento = GeneralC.cargarResultadosSQL(Sentencias.CARGAR_INFORME_QX_MEDICAMENTO, paramtro);
+             dgvMedicamento.DataSource = informeQx.dtMedicamento;*/
         }
 
         private void dgvMedicamento_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           /* if (txtAtencion.Text != string.Empty)
-            {
-                if (e.RowIndex >= 0)
-                {
-                    GeneralC.deshabilitarColumnas(dgvMedicamento);
-                    if (edicion)
-                    {
-                        dgvMedicamento.Columns["cantidadMed"].ReadOnly = false;
-                        if (GeneralC.verificarUbicacionCelda(e, dgvMedicamento, "quitarMed") & e.RowIndex < dgvMedicamento.Rows.Count - 1)
-                        {
-                            if (Mensajes.preguntaAnular())
-                            {
-                                dgvMedicamento.Rows.RemoveAt(e.RowIndex);
-                            }
-                        }
-                        else if (GeneralC.verificarUbicacionCelda(e, dgvMedicamento, "agregarMed") & e.RowIndex == dgvMedicamento.Rows.Count - 1)
-                        {
-                            try
-                            {
-                                List<string> parametros = new List<string>();
+            /* if (txtAtencion.Text != string.Empty)
+             {
+                 if (e.RowIndex >= 0)
+                 {
+                     GeneralC.deshabilitarColumnas(dgvMedicamento);
+                     if (edicion)
+                     {
+                         dgvMedicamento.Columns["cantidadMed"].ReadOnly = false;
+                         if (GeneralC.verificarUbicacionCelda(e, dgvMedicamento, "quitarMed") & e.RowIndex < dgvMedicamento.Rows.Count - 1)
+                         {
+                             if (Mensajes.preguntaAnular())
+                             {
+                                 dgvMedicamento.Rows.RemoveAt(e.RowIndex);
+                             }
+                         }
+                         else if (GeneralC.verificarUbicacionCelda(e, dgvMedicamento, "agregarMed") & e.RowIndex == dgvMedicamento.Rows.Count - 1)
+                         {
+                             try
+                             {
+                                 List<string> parametros = new List<string>();
 
-                                DataTable tablaParametros = new DataTable();
-                                DataTable tablasSeleccionado = new DataTable();
+                                 DataTable tablaParametros = new DataTable();
+                                 DataTable tablasSeleccionado = new DataTable();
 
-                                tablaParametros.Columns.Add("Parametro", Type.GetType("System.Object"));
-                                tablaParametros.Columns.Add("Valor", Type.GetType("System.Object"));
-     
-                                object[] myObjArray1 = { "@pFiltro", "" };
+                                 tablaParametros.Columns.Add("Parametro", Type.GetType("System.Object"));
+                                 tablaParametros.Columns.Add("Valor", Type.GetType("System.Object"));
 
-                                DataView view = new DataView(informeQx.dtMedicamento);
+                                 object[] myObjArray1 = { "@pFiltro", "" };
 
-                                tablasSeleccionado = view.ToTable(true, new string[] { "idMedicamento" }).Copy();
-                                tablasSeleccionado.Columns.Add("valor");
-                                tablasSeleccionado.Rows.RemoveAt(tablasSeleccionado.Rows.Count - 1);
-                                object[] myObjArray2 = { "@pTblSeleccionados", tablasSeleccionado };
+                                 DataView view = new DataView(informeQx.dtMedicamento);
 
-                                tablaParametros.Rows.Add(myObjArray1);
-                                tablaParametros.Rows.Add(myObjArray2);
+                                 tablasSeleccionado = view.ToTable(true, new string[] { "idMedicamento" }).Copy();
+                                 tablasSeleccionado.Columns.Add("valor");
+                                 tablasSeleccionado.Rows.RemoveAt(tablasSeleccionado.Rows.Count - 1);
+                                 object[] myObjArray2 = { "@pTblSeleccionados", tablasSeleccionado };
 
-                                GeneralC.buscarDevuelveFila(Sentencias.LISTAR_MEDICAMENTOS,
-                                                            parametros,
-                                                            new GeneralC.cargarInfoFila(cargarMedicamento),
-                                                            Mensajes.BUSQUEDA_EQUIVALENCIA,
-                                                            true,
-                                                            null,
-                                                            tablasSeleccionado,
-                                                            tablaParametros);
-                            }
-                            catch (Exception ex)
-                            {
-                                Mensajes.mensajeError(ex);
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                Mensajes.mensajeAdvertencia("Favor Cargar los datos del paciente");
-            }*/
+                                 tablaParametros.Rows.Add(myObjArray1);
+                                 tablaParametros.Rows.Add(myObjArray2);
+
+                                 GeneralC.buscarDevuelveFila(Sentencias.LISTAR_MEDICAMENTOS,
+                                                             parametros,
+                                                             new GeneralC.cargarInfoFila(cargarMedicamento),
+                                                             Mensajes.BUSQUEDA_EQUIVALENCIA,
+                                                             true,
+                                                             null,
+                                                             tablasSeleccionado,
+                                                             tablaParametros);
+                             }
+                             catch (Exception ex)
+                             {
+                                 Mensajes.mensajeError(ex);
+                             }
+                         }
+                     }
+                 }
+             }
+             else
+             {
+                 Mensajes.mensajeAdvertencia("Favor Cargar los datos del paciente");
+             }*/
         }
         private void dgvMedicamento_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
@@ -636,6 +635,6 @@ namespace Vista.HistoriaClinica.Resultado
         }
         #endregion
 
-       
+
     }
 }

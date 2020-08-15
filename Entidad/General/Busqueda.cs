@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo.General
+namespace Entidad.General
 {
     public class Busqueda
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 
-namespace Modelo.Facturacion
+namespace Entidad.Facturacion
 {
     public class FacturaPaciente
     {

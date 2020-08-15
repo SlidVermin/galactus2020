@@ -2,7 +2,6 @@
 using System.Data.SqlClient;
 using Modelo.General;
 using Modelo.General.Instrucciones;
-using Modelo.Ingreso;
 using Entidad.Ingreso;
 
 namespace Modelo.Ingreso

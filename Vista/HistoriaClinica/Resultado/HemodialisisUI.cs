@@ -211,19 +211,12 @@ namespace Vista.HistoriaClinica.Resultado
         }
         private void cargarHemodialisis(DataRow dRows)
         {
-            try
-            {
                 hemodialisis.idHemodialisis = dRows.Field<int>("idHemodialisis");
                 dtpFecha.Value = dRows.Field<DateTime>("Fecha Resultado");
                 txtNota.Text = dRows.Field<string>("Nota").ToString();
                 txtNotaSigno.Text = dRows.Field<string>("SignosVitales").ToString();
                 cargarInformacionAtencion(dRows);
                 cargarHemodialisisMedicamento();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, Mensajes.NOMBRE_SOFT, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
             GeneralUI.posBuscar(this, tstMenuPatron, tsbNuevo, tstModificar, tsbBuscar, tsbAnular,tstImprimir);
             btnSalir.Enabled = true;
         }

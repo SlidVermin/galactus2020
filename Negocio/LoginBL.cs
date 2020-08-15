@@ -1,4 +1,5 @@
-﻿using Modelo;
+﻿using Entidad.General;
+using Modelo;
 using Modelo.General;
 using System;
 using System.Collections.Generic;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace Modelo.General
+namespace Entidad.General
 {
 
     public class UsuarioActual

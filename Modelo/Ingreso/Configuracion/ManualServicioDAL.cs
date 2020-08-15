@@ -1,5 +1,6 @@
 ﻿using System;
 using Modelo.Ingreso.Configuracion;
+using Entidad.Configuracion;
 
 namespace Modelo.Ingreso.Configuracion
 {

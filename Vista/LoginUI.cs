@@ -1,12 +1,8 @@
-﻿using Modelo.General;
-using Modelo.Negocio;
+﻿using Entidad.General;
 using Negocio;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using Vista.General;
 
 namespace Vista
 {
@@ -28,12 +24,7 @@ namespace Vista
         }
 
         private bool validarCamposObligatorios() {
-            if (txtUsuario.Text != String.Empty || txtContrasena.Text != String.Empty)
-            {
-                return true;
-            }
-
-            return false;
+            return (txtUsuario.Text != String.Empty && txtContrasena.Text != String.Empty);
         }
 
         private void btIngresar_Click(object sender, EventArgs e)
@@ -51,9 +42,7 @@ namespace Vista
                 }
                 else
                 {
-                    /*TODO
-                 Mostrar mensaje usuario invalido    
-                 */
+                    MessageBox.Show("El usuario no existe o la clave es incorrecta.", "", MessageBoxButtons.OK);
                 }
             }            
         }

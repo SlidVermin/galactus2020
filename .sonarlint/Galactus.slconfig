@@ -1,0 +1,12 @@
+{
+  "ServerUri": "http://localhost:9000",
+  "Organization": null,
+  "ProjectKey": "Galactus1.0",
+  "ProjectName": "Galactus1.0",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AXPJntVqbfzjsvHrnUBO",
+      "ProfileTimestamp": "2020-08-07T15:51:36Z"
+    }
+  }
+}

@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Collections;
+
 using System.Globalization;
-using Modelo.General;
 using Vista.General;
+using Entidad.General;
 
 namespace Vista
 {
     public partial class PrincipalUI : Form
     {
-        public MenuStrip MenuOpciones = new MenuStrip();
+        private MenuStrip MenuOpciones = new MenuStrip();
         private int childFormNumber = 0;
         public PrincipalUI()
         {
@@ -82,11 +82,10 @@ namespace Vista
         }
         public DictionaryEntry obtenerImagen(string nombre)
         {
-            DictionaryEntry itemEncontrado;
-            var lista = Properties.Resources.ResourceManager.GetResourceSet(CultureInfo.CurrentCulture, false, true);
-          
+            DictionaryEntry itemEncontrado;            
+
             foreach (DictionaryEntry imagen in Properties.Resources.ResourceManager.GetResourceSet(CultureInfo.CurrentCulture, false, true))
-            {             
+            {
                 if (imagen.Key.Equals(nombre))
                 {
                     itemEncontrado = imagen;
@@ -129,7 +128,6 @@ namespace Vista
                     mnuSubOpcion.Click += new EventHandler(salir);
                     break;
                 default:
-                    //Form formulario = crearInstancia(mnuSubOpcion.Name, mnuSubOpcion.Tag);                        
                     mnuSubOpcion.Click += new EventHandler(cargarFormulario);
                     break;
 
@@ -137,35 +135,27 @@ namespace Vista
         }
         public void cargarFormulario(Object sender, EventArgs e)
         {
-            try
-            {
-                var menuItem = (ToolStripMenuItem)sender;
-                var NombreNuevaInstancia = Assembly.GetExecutingAssembly().GetName().Name;
-                InformacionTag info = new InformacionTag();
-                info = (InformacionTag)menuItem.Tag;
-                Type vTipo = null;
-                var a = Assembly.GetExecutingAssembly().GetTypes();
-                foreach (var item in a)
-                {
-                    if (item.Name.Equals(info.NombreForm))
-                    {
-                        vTipo = Assembly.GetExecutingAssembly().GetType(item.FullName);
-                        break;
-                    }
-                }
 
-                if (vTipo != null)
+            var menuItem = (ToolStripMenuItem)sender;            
+            InformacionTag info = new InformacionTag();
+            info = (InformacionTag)menuItem.Tag;
+            Type vTipo = null;
+            var a = Assembly.GetExecutingAssembly().GetTypes();
+            foreach (var item in a)
+            {
+                if (item.Name.Equals(info.NombreForm))
                 {
-                    var vFormulario = (Form)Activator.CreateInstance(vTipo);
-                    vFormulario.Tag = info.IdMenu;
-                    GeneralUI.cargarForm(vFormulario, this);
+                    vTipo = Assembly.GetExecutingAssembly().GetType(item.FullName);
+                    break;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
+            if (vTipo != null)
+            {
+                var vFormulario = (Form)Activator.CreateInstance(vTipo);
+                vFormulario.Tag = info.IdMenu;
+                GeneralUI.cargarForm(vFormulario, this);
+            }
         }
 
         public void salir(Object sender, EventArgs e)
@@ -175,44 +165,12 @@ namespace Vista
                 Application.Exit();
             }
 
-        }   
-        
-        private Form crearInstancia(string nombreFormulario, Object tag)
-        {
-            Form nuevoFormulario = null;
-
-            try
-            {
-                InformacionTag info = new InformacionTag();
-                info = (InformacionTag)tag;
-                Type vTipo = null;
-                var a = Assembly.GetExecutingAssembly().GetTypes();
-                foreach (var item in a)
-                {
-                    if (item.Name.Equals(info.NombreForm))
-                    {
-                        vTipo = Assembly.GetExecutingAssembly().GetType(item.FullName);
-                        break;
-                    }
-                }
-
-                if (vTipo != null)
-                {
-                    nuevoFormulario = (Form)Activator.CreateInstance(vTipo);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            return nuevoFormulario;
         }
-        
+
         private void PrincipalUI_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
-        
+
     }
 }

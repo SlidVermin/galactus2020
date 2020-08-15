@@ -11,7 +11,6 @@ namespace Vista.Ingreso
 {
     public partial class PacienteUI : Form
     {
-        String edad;
         Paciente paciente = new Paciente();
         public PacienteUI()
         {
@@ -19,18 +18,16 @@ namespace Vista.Ingreso
         }
         private void PacienteUI_Load(object sender, EventArgs e)
         {
-            /*GeneralUI.posCargadoForm(this, tstMenuPatron, tsbNuevo, tsbBuscar);
+            GeneralUI.posCargadoForm(this, tstMenuPatron, tsbNuevo, tsbBuscar);
             inicio();
-            btnSalir.Enabled = true;*/
+            btnSalir.Enabled = true;
         }
         private void inicio()
         {
-            /*establecerParametros();
-            GeneralUI.llenarCombo(Sentencias.CARGAR_PAIS,ConstanteGeneral.VALUE_MEMBER,ConstanteGeneral.DISPLAY_MEMBER,cmbPaisDocumento);
-            GeneralUI.llenarCombo(Sentencias.CARGAR_PAIS,ConstanteGeneral.VALUE_MEMBER,ConstanteGeneral.DISPLAY_MEMBER,cmbPaisNacimiento);
-            GeneralUI.llenarCombo(Sentencias.CARGAR_PAIS,ConstanteGeneral.VALUE_MEMBER,ConstanteGeneral.DISPLAY_MEMBER, cmbPaisResidencia);*/
-
-            
+            establecerParametros();
+            //GeneralUI.llenarCombo(Sentencias.CARGAR_PAIS,ConstanteGeneral.VALUE_MEMBER,ConstanteGeneral.DISPLAY_MEMBER,cmbPaisDocumento);
+            //GeneralUI.llenarCombo(Sentencias.CARGAR_PAIS,ConstanteGeneral.VALUE_MEMBER,ConstanteGeneral.DISPLAY_MEMBER,cmbPaisNacimiento);
+            //GeneralUI.llenarCombo(Sentencias.CARGAR_PAIS,ConstanteGeneral.VALUE_MEMBER,ConstanteGeneral.DISPLAY_MEMBER, cmbPaisResidencia);*/
         }
 
         public void establecerParametros()
@@ -336,19 +333,15 @@ namespace Vista.Ingreso
 
         private void buscarEpsBtn_Click_2(object sender, EventArgs e)
         {
-            try
-            {
+
                 List<string> parametros = new List<string>();
 
                 /*GeneralUI.buscarDevuelveFila(Sentencias.CARGAR_EPS,
                                                    parametros,
                                                    new GeneralUI.cargarInfoFila(cargarRegistro),
                                                    Mensajes.BUSQUEDA_EPS, true);*/
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, Mensajes.NOMBRE_SOFT, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+   
+           
         }
         private void fechaNPicker_Validating(object sender, CancelEventArgs e)
         {
@@ -366,17 +359,9 @@ namespace Vista.Ingreso
         {
             if (validarForm() && MessageBox.Show(Mensajes.GUARDAR_FORM, Mensajes.NOMBRE_SOFT, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                try
-                {
                     /*asignarDatos();
                     PacienteDAL.guardar(paciente);
                     GeneralUI.posGuardar(this, tstMenuPatron, tsbNuevo, tsbBuscar, tstModificar, tsbAnular, null, Mensajes.CONFIRMACION_GUARDADO);*/
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
             }
         }
 
@@ -414,17 +399,9 @@ namespace Vista.Ingreso
         {
             if (MessageBox.Show(Mensajes.ANULAR_FORM, Mensajes.NOMBRE_SOFT, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                try
-                {
-                    /*paciente.eliminar();
+                /*paciente.eliminar();
                     GeneralUI.posAnular(this, tstMenuPatron, tsbNuevo, tsbBuscar, Mensajes.CONFIRMACION_ANULADO);
-                    btnSalir.Enabled = true;*/
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
+                    btnSalir.Enabled = true;*/         
             }
         }
     }

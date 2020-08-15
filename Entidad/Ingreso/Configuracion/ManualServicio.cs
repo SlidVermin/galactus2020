@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-namespace Modelo.Ingreso.Configuracion
+namespace Entidad.Configuracion
 {
     public class ManualServicio
     {

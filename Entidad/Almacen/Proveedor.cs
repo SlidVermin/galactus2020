@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-namespace Modelo.Inventario
+namespace Entidad.Almacen
 {
     public class Proveedor : GeneralTercero
     {

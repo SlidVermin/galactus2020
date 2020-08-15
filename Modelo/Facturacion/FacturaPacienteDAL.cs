@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using Modelo.Facturacion;
 using Modelo.General.Instrucciones;
 using Modelo.General;
+using Entidad.Facturacion;
 
 namespace Modelo.Facturacion
 {

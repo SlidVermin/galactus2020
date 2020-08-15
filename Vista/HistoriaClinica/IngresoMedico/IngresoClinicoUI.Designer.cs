@@ -1,6 +1,6 @@
 ﻿using Vista.General;
 
-namespace Galactus.VistaControlador.HistoriaClinica
+namespace Vista.HistoriaClinica.IngresoMedico
 {
     partial class IngresoClinicoUI
     {
@@ -101,7 +101,7 @@ namespace Galactus.VistaControlador.HistoriaClinica
             // 
             // tstImprimir
             // 
-            this.tstImprimir.Image = Vista.Properties.Resources.print__2_;
+            this.tstImprimir.Image = Properties.Resources.print__2_;
             this.tstImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tstImprimir.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
             this.tstImprimir.Name = "tstImprimir";

@@ -65,7 +65,7 @@ namespace Vista.Ingreso
         {
             if (MessageBox.Show(Mensajes.GUARDAR_FORM, Mensajes.NOMBRE_SOFT, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (validarCampos() == true)
+                if (validarCampos())
                 {
                     cargarObjeto();
                     //manualTarifarioServicioDAL.guardarManualTarifario(objManualTarifario);

@@ -3,7 +3,7 @@ using System;
 using System.Windows.Forms;
 using Vista.General;
 
-namespace Galactus.VistaControlador.HistoriaClinica
+namespace Vista.HistoriaClinica.IngresoMedico
 {
     public partial class IngresoClinicoUI : Form
     {

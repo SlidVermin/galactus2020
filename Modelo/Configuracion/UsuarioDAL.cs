@@ -1,4 +1,5 @@
-﻿using Modelo.Configuracion;
+﻿using Entidad.Seguridad;
+using Modelo.Configuracion;
 using Modelo.General;
 using Modelo.General.Constantes;
 using System;

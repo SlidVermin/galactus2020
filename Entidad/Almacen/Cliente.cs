@@ -1,5 +1,6 @@
 ﻿
-namespace Modelo.Inventario
+
+namespace Entidad.Almacen
 {
    
     public class Cliente : GeneralTercero

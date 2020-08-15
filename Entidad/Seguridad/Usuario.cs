@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo.Configuracion
+namespace Entidad.Seguridad
 {
     public class Usuario
     {

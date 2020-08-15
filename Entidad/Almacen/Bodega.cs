@@ -1,4 +1,4 @@
-﻿namespace Modelo.Inventario
+﻿namespace Entidad.Almacen
 {
     public class Bodega
     {

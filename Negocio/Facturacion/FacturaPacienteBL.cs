@@ -6,6 +6,7 @@ using Modelo.General;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using Entidad.Facturacion;
 
 namespace Negocio.Facturacion
 {

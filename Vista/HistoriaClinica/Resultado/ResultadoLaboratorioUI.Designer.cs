@@ -1,6 +1,4 @@
-﻿using System.util;
-
-namespace Vista.HistoriaClinica.Resultado
+﻿namespace Vista.HistoriaClinica.Resultado
 {
     partial class ResultadoLaboratorioUI
     {
@@ -134,7 +132,7 @@ namespace Vista.HistoriaClinica.Resultado
             // tsbAnular
             // 
             this.tsbAnular.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbAnular.Image = Vista.Properties.Resources.btn_anular;
+            this.tsbAnular.Image = Properties.Resources.btn_anular;
             this.tsbAnular.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAnular.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
             this.tsbAnular.Name = "tsbAnular";

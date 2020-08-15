@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using Modelo.Configuracion;
 using Modelo.General.Instrucciones;
 using Modelo.General;
+using Entidad.Configuracion;
 
 namespace Modelo.Configuracion
 {

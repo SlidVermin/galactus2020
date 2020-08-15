@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <CodeAnalysisRuleSet>..\.sonarlint\galactus1.0csharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\.sonarlint\galactus1.0csharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\.sonarlint\galactus1.0csharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
@@ -61,6 +64,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almacen\BodegaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen\BodegaUI.designer.cs">
+      <DependentUpon>BodegaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\ClienteUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen\ClienteUI.designer.cs">
+      <DependentUpon>ClienteUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\EquivalenciaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen\EquivalenciaUI.Designer.cs">
+      <DependentUpon>EquivalenciaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\ProductoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen\ProductoUI.designer.cs">
+      <DependentUpon>ProductoUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\ProveedorUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen\ProveedorUI.designer.cs">
+      <DependentUpon>ProveedorUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\TerceroUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen\TerceroUI.designer.cs">
+      <DependentUpon>TerceroUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\ConfiguracionGeneralUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\ConfiguracionGeneralUI.Designer.cs">
+      <DependentUpon>ConfiguracionGeneralUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\EmpresaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\EmpresaUI.Designer.cs">
+      <DependentUpon>EmpresaUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\FacturaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\FacturaUI.designer.cs">
+      <DependentUpon>FacturaUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="General\BusquedaGeneralUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +130,7 @@
     <Compile Include="General\Constantes\ConsultasHistoriaClinica.cs" />
     <Compile Include="General\FuncionesUI.cs" />
     <Compile Include="General\GeneralUI.cs" />
+    <Compile Include="General\ManejadorExcepcion.cs" />
     <Compile Include="General\Mensajes.cs" />
     <Compile Include="General\MyRenderer.cs" />
     <Compile Include="General\ReporteUI.cs" />
@@ -431,6 +489,39 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\UsuarioUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UsuarioUI.designer.cs">
+      <DependentUpon>UsuarioUI.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Almacen\BodegaUI.resx">
+      <DependentUpon>BodegaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen\ClienteUI.resx">
+      <DependentUpon>ClienteUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen\EquivalenciaUI.resx">
+      <DependentUpon>EquivalenciaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen\ProductoUI.resx">
+      <DependentUpon>ProductoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen\ProveedorUI.resx">
+      <DependentUpon>ProveedorUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen\TerceroUI.resx">
+      <DependentUpon>TerceroUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\ConfiguracionGeneralUI.resx">
+      <DependentUpon>ConfiguracionGeneralUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\EmpresaUI.resx">
+      <DependentUpon>EmpresaUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\FacturaUI.resx">
+      <DependentUpon>FacturaUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="General\BusquedaGeneralUI.resx">
       <DependentUpon>BusquedaGeneralUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -618,6 +709,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Seguridad\UsuarioUI.resx">
+      <DependentUpon>UsuarioUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="..\.sonarlint\galactus1.0csharp.ruleset">
+      <Link>galactus1.0csharp.ruleset</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -632,6 +729,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\galactus1.0\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
     <Content Include="Recursos\Actions-blue-arrow-undo-icon %281%29.png" />
     <Content Include="Recursos\Actions-document-new-icon.png" />
     <Content Include="Recursos\Actions-document-revert-icon.png" />
@@ -720,10 +820,7 @@
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configuracion\" />
-    <Folder Include="Facturacion\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
