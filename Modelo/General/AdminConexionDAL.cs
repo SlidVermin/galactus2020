@@ -7,7 +7,7 @@ namespace Modelo.General
 {
     public class AdminConexionDAL
     {
-        public static string cadenaConexionDefault = "Data Source=localhost;Initial Catalog=Galactus_HC;persist Security Info=True;User ID = galactus_main;Password=galactus_main*;MultipleActiveResultSets=True";
+        public static string cadenaConexionDefault = "Data Source=23.92.92.135;Initial Catalog=Galactus_HC;persist Security Info=True;User ID = galactus_main;Password=galactus_main*;MultipleActiveResultSets=True";
         public static SqlConnection conn = new SqlConnection(cadenaConexionDefault);
 
         public enum enlace
